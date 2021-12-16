@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "dreamiverse-ui": "apps/dreamiverse-ui",
+    "dreamiverse-ui-e2e": "apps/dreamiverse-ui-e2e"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "root": "apps/dreamiverse-ui",
+  "sourceRoot": "apps/dreamiverse-ui",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/dreamiverse-ui",
+        "outputPath": "dist/apps/dreamiverse-ui"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "dreamiverse-ui:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "dreamiverse-ui:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "dreamiverse-ui:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/dreamiverse-ui"],
+      "options": {
+        "jestConfig": "apps/dreamiverse-ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/dreamiverse-ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
